@@ -1,0 +1,9 @@
+.sche-button {
+	display: column;
+	padding: 8px;
+}
+
+.scheRegi-container {
+	width: 50%;
+	min-width: 540px;
+}

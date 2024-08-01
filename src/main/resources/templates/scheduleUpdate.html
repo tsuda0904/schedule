@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/common.css}" type="text/css">
+	<link rel="stylesheet" th:href="@{/css/side.css}" type="text/css">
+	<link rel="stylesheet" th:href="@{/css/schedule.css}" type="text/css">
+	<script type="text/javascript" th:src="@{/js/scheduleDetail.js}"></script>
+	<link rel="stylesheet" th:href="@{/css/modal.css}" type="text/css">
+	<title>スケジュール変更</title>
+</head>
+<body>
+	<div class="replace" th:replace="~{/parts/header_part :: header-fragment}"></div>
+	<div class="outer-container">
+		<div class="side-container">
+			<div class="side-inner-container">
+				<h4 class="page-title">スケジュール変更</h4>
+			</div>
+		</div>
+		
+		<div class="container scheRegi-container">
+			<h4 class="sub-header">スケジュール情報変更</h4>
+			<div class="container-body">
+				<form name="updateform" th:action="@{/schedule/update}" th:object="${scheduleUpdateQuery}" method="post">
+						<input type="hidden" name="id" th:field="*{scheduleId}">
+					    <table class="table-striped">
+							<tr><td>日付</td><td class="modal-td"><input class="search-input" type="date" name="meetingday" id="meetingday"></td></tr>
+							<tr><td>時間</td><td class="modal-td"><input class="search-input" type="time" name="meetingtime" id="meetingtime"></td></tr>
+							<tr><td>会議名</td><td class="modal-td">
+								<select name="meeting" class="search-input" th:field="*{meeting}">
+									<option value="00"></option>
+									<option value="学部会議">学部会議</option>
+									<option value="人間生活学科懇談会">人間生活学科懇談会</option>
+									<option value="食物栄養科学科懇談会">食物栄養科学科懇談会</option>
+									<option value="運営委員会">運営委員会</option>
+									<option value="その他">その他</option>
+								</select>
+							</td></tr>
+							<tr><td>議題</td><td class="modal-td"><input name="meeting_name" class="search-input" type="text" th:field="*{meetingName}" required></td></tr>
+							<tr><td>場所</td><td class="modal-td"><input name="place" class="search-input" type="text" th:field="*{place}" required></td></tr>
+							<!-- <tr><td>登録日</td><td th:text="${#dates.format(schedule.scheduleRegistered, 'yyyy/MM/dd')}"></td></tr> -->
+					    </table>
+					    <button id="execute-update" class="btn" type="button" onclick="	updateData()">Submit</button>
+					 </form>
+				 </div>
+			 </div>
+		 </div>
+		 
+	</div>
+</body>
+</html>

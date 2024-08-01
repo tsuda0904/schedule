@@ -1,0 +1,22 @@
+<header class="fragment" th:fragment="header-fragment">
+	<div class="index-links">
+		<div class="link-backimg">
+			<a class="header-link" href="/">TOP</a>
+		</div>
+		<div class="link-backimg">
+			<a class="header-link" href="/mypage/index">マイページ</a>
+		</div>
+		<div class="link-backimg">
+			<a class="header-link" href="/user/index">ユーザー一覧</a>
+		</div>
+		<div class="link-backimg">
+			<a class="header-link" sec:authorize="hasRole('ADMIN')" href="/schedule/index">スケジュール編集</a>
+		</div>
+	</div>
+	<div class="signin-backimg header-title">
+		<form name="logoutform" th:action="@{/logout}" method="post">
+			<button class="btn" type="submit">sign out</button>
+		</form>
+	</div>
+	
+</header>

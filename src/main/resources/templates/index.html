@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/common.css}" type="text/css">
+	<link rel="stylesheet" th:href="@{/css/side.css}" type="text/css">
+	<script type="text/javascript" th:src="@{/js/meeting.js}"></script>
+	<title>TOP PAGE</title>
+</head>
+<body>
+	<div class="replace" th:replace="~{/parts/header_part :: header-fragment}"></div>
+	<div class="outer-container">
+		<div class="side-container">
+			<div class="side-inner-container">
+				<form action="#" th:action="@{/schedule/search}" method="get">
+					<h4 class="page-title">スケジュール検索</h4>
+					<div class="search-checkout">
+						<span class="search-label">会議選択</span>
+						<hr size="2" class="border">
+						
+						<label class="chk-lable"><input type="checkbox" name="meeting" value="学部会議"><span class="label-text">学部会議</span></label>
+						<label class="chk-lable"><input type="checkbox" name="meeting" value="人間生活学科懇談会"><span class="label-text">人間生活学科懇談会</span></label>
+						<label class="chk-lable"><input type="checkbox" name="meeting" value="食物栄養科学科懇談会"><span class="label-text">食物栄養科学科懇談会</span></label>
+						<label class="chk-lable"><input type="checkbox" name="meeting" value="運営委員会"><span class="label-text">運営委員会</span></label>
+						<label class="chk-lable"><input type="checkbox" name="meeting" value="その他"><span class="label-text">その他</span></label>
+						
+					</div>
+					<hr size="2" class="border">
+					<input class="btn" type="submit" value="Submit" />
+				</form>
+			</div>
+		</div>
+		
+		<div class="container">
+			<th:block th:if="${searchMeeting != null}">
+				<div class="serch-query">
+					<h3>検索条件</h3>
+					<div class="search">
+						<pre>会議&#009;：</pre><p th:text="${searchMeeting}"></p>
+					</div>
+					<div class="search">
+						<pre>件数&#009;：</pre><p th:text="${scheduleList.size}"></p>
+					</div>
+
+				</div>
+			</th:block>
+			<table class="table table-striped">
+				<thead>
+			    	<tr>
+			          <th class="index-th">日付</th>
+			          <th class="index-th">時間</th>
+			          <th class="index-th">会議名</th>
+			          <th class="index-th">議題</th>
+			          <th class="index-th">場所</th>
+			          <th class="index-th">登録日</th>
+			        </tr>
+			    </thead>
+			    <tbody class="list">
+			        <tr th:each="schedule : ${scheduleList}" th:object="${schedule}">
+			          <td th:text="*{#dates.format(day, 'yyyy/MM/dd')}"></td>
+			          <td th:text="*{#dates.format(time, 'HH:mm')}"></td>
+			          <td th:text="*{meeting}"></td>
+			          <td th:text="*{meetingName}"></td>
+			          <td th:text="*{place}"></td>
+			          <td th:text="*{#dates.format(scheduleRegistered, 'yyyy/MM/dd')}"></td>
+			        </tr>
+			    </tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

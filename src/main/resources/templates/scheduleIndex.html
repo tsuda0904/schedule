@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/common.css}" type="text/css">
+	<link rel="stylesheet" th:href="@{/css/side.css}" type="text/css">
+	<link rel="stylesheet" th:href="@{/css/modal.css}" type="text/css">
+	<link rel="stylesheet" th:href="@{/css/schedule.css}" type="text/css">
+	<script type="text/javascript" th:src="@{/js/scheduleDetail.js}"></script>
+	<script type="text/javascript" th:src="@{/js/modal.js}"></script>
+	<title>ADMIN PAGE</title>
+</head>
+<body>
+	<div class="replace" th:replace="~{/parts/header_part :: header-fragment}"></div>
+	<div class="outer-container">
+		<div class="side-container">
+			<div class="side-inner-container">
+				<h4 class="page-title">スケジュール登録</h4>
+				<hr size="2" class="border">
+				<a class="link" href="/schedule/regist">新規登録</a>
+				<hr size="2" class="border">
+			</div>
+		</div>
+		
+		<div class="container">
+			<table class="table table-striped">
+				<thead>
+			    	<tr>
+			    	  <th class="index-th"></th>
+			          <th class="index-th">日付</th>
+			          <th class="index-th">時間</th>
+			          <th class="index-th">会議名</th>
+			          <th class="index-th">議題</th>
+			          <th class="index-th">場所</th>
+			          <th class="index-th">登録日</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr th:each="schedule : ${scheduleList}" th:object="${schedule}">
+			          <td class="sche-button">
+				        <form th:action="@{/schedule/update/{id}(id=*{scheduleId})}" th:method="get">
+	         				<button class="btn update">変更</button>
+						</form>
+				        <button class="btn delete" type="button" th:value="${schedule.scheduleId}" onclick="deleteClick(this.value)">削除</button>
+				      </td>  
+			          <td th:text="*{#dates.format(day, 'yyyy/MM/dd')}"></td>
+			          <td th:text="*{#dates.format(time, 'HH:mm')}"></td>
+			          <td th:text="*{meeting}"></td>
+			          <td th:text="*{meetingName}"></td>
+			          <td th:text="*{place}"></td>
+			          <td th:text="*{#dates.format(scheduleRegistered, 'yyyy/MM/dd')}"></td>
+				           
+				      
+			        </tr>
+			    </tbody>
+			</table>
+		</div>
+		 
+	</div>
+</body>
+</html>

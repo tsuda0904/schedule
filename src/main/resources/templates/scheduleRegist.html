@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/common.css}" type="text/css">
+	<link rel="stylesheet" th:href="@{/css/side.css}" type="text/css">
+	<link rel="stylesheet" th:href="@{/css/schedule.css}" type="text/css">
+	<script type="text/javascript" th:src="@{/js/scheduleRegist.js}"></script>
+	<title>新規スケジュール登録</title>
+</head>
+<body>
+	<div class="replace" th:replace="~{/parts/header_part :: header-fragment}"></div>
+	<div class="outer-container">
+		<div class="side-container">
+			<div class="side-inner-container">
+				<h4 class="page-title">新規スケジュール登録</h4>
+				<hr size="2" class="border">
+				<button class="btn delete" type="button" onclick="cancelClick()">キャンセル</button>
+				<button class="btn update" type="button" onclick="execute()">登録処理実行</button>
+				<hr size="2" class="border">
+			</div>
+		</div>
+		
+		<div class="container scheRegi-container">
+			<form action="#" name="registform" th:action="@{/schedule/registExecute}" th:object="${scheduleEntity}" method="post">
+				<h4 class="sub-header">スケジュール</h4>
+			    <div class="content">
+					<table class="modal-table table-striped">
+						<tr><td>日付</td><td><input class="search-input" type="date" name="meetingday" id="meetingday"></td></tr>
+						<tr><td>時間</td><td><input class="search-input" type="time" name="meetingtime" id="meetingtime"></td></tr>
+						<tr><td>会議名</td><td>
+							<select name="meeting" class="search-input" th:field="*{meeting}">
+								<option value="00"></option>
+								<option value="学部会議">学部会議</option>
+								<option value="人間生活学科懇談会">人間生活学科懇談会</option>
+								<option value="食物栄養科学科懇談会">食物栄養科学科懇談会</option>
+								<option value="運営委員会">運営委員会</option>
+								<option value="その他">その他</option>
+							</select>
+						</td></tr>
+						<tr><td>議題</td><td><input class="search-input" type="text" required th:field="*{meetingName}"></td></tr>
+						<tr><td>場所</td><td><input class="search-input" type="text" required th:field="*{place}"></td></tr>
+				    </table>
+			    </div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
