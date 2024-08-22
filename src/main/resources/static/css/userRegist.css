@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+table {
+	text-align: left;
+	border-collapse: separate;
+	width: 50%;
+	min-width: 540px;
+}
