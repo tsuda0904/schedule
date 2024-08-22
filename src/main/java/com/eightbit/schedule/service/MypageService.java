@@ -43,7 +43,7 @@ public class MypageService {
 		uuq.setLastName(user.getLastName());
 		uuq.setFirstName(user.getFirstName());
 		uuq.setTel(user.getTel());
-		uuq.setMail(user.getMail());
+//		uuq.setMail(user.getMail());
 		uuq.setAddress(user.getAddress());
 		uuq.setCourse(user.getCourse());
 		uuq.setPosition(user.getPosition());
@@ -62,7 +62,7 @@ public class MypageService {
 		user.setLastName(uuq.getLastName());
 		user.setFirstName(uuq.getFirstName());
 		user.setTel(uuq.getTel());
-		user.setMail(uuq.getMail());
+//		user.setMail(uuq.getMail());
 		user.setAddress(uuq.getAddress());
 		user.setCourse(uuq.getCourse());
 		user.setPosition(uuq.getPosition());

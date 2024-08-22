@@ -7,6 +7,7 @@
 	<link rel="stylesheet" th:href="@{/css/common.css}" type="text/css">
 	<link rel="stylesheet" th:href="@{/css/side.css}" type="text/css">
 	<script type="text/javascript" th:src="@{/js/meeting.js}"></script>
+	
 	<title>TOP PAGE</title>
 </head>
 <body>
@@ -14,21 +15,22 @@
 	<div class="outer-container">
 		<div class="side-container">
 			<div class="side-inner-container">
-				<form action="#" th:action="@{/schedule/search}" method="get">
+				<form th:action="@{/schedule/search}" method="get">
 					<h4 class="page-title">スケジュール検索</h4>
 					<div class="search-checkout">
 						<span class="search-label">会議選択</span>
 						<hr size="2" class="border">
 						
-						<label class="chk-lable"><input type="checkbox" name="meeting" value="学部会議"><span class="label-text">学部会議</span></label>
-						<label class="chk-lable"><input type="checkbox" name="meeting" value="人間生活学科懇談会"><span class="label-text">人間生活学科懇談会</span></label>
-						<label class="chk-lable"><input type="checkbox" name="meeting" value="食物栄養科学科懇談会"><span class="label-text">食物栄養科学科懇談会</span></label>
-						<label class="chk-lable"><input type="checkbox" name="meeting" value="運営委員会"><span class="label-text">運営委員会</span></label>
-						<label class="chk-lable"><input type="checkbox" name="meeting" value="その他"><span class="label-text">その他</span></label>
-						
+						<label class="chk-lable"><input type="checkbox" name="meeting" class="meetingClass" value="学部会議"><span class="label-text">学部会議</span></label>
+						<label class="chk-lable"><input type="checkbox" name="meeting" class="meetingClass" value="人間生活学科懇談会"><span class="label-text">人間生活学科懇談会</span></label>
+						<label class="chk-lable"><input type="checkbox" name="meeting" class="meetingClass" value="食物栄養科学科懇談会"><span class="label-text">食物栄養科学科懇談会</span></label>
+						<label class="chk-lable"><input type="checkbox" name="meeting" class="meetingClass" value="運営委員会"><span class="label-text">運営委員会</span></label>
+						<label class="chk-lable"><input type="checkbox" name="meeting" class="meetingClass" value="その他"><span class="label-text">その他</span></label>
+				
 					</div>
 					<hr size="2" class="border">
-					<input class="btn" type="submit" value="Submit" />
+					<!-- <input class="btn" type="submit" value="Submit"/> -->
+					<button id="submit" class="btn" type="submit" onClick="return isCheck()">Submit</button>
 				</form>
 			</div>
 		</div>

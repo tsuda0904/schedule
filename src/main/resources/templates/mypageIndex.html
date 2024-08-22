@@ -45,7 +45,7 @@
 							<tr><td>生年月日</td><td th:text="${#dates.format(user.birth, 'yyyy/MM/dd')}"></td></tr>
 							<tr><td>性別</td><td th:text="${user.sex}"></td></tr>
 							<tr><td>tel</td><td class="modal-td"><input name="tel" class="search-input" type="tel" th:field="*{tel}" required></td></tr>
-							<tr><td>mail</td><td class="modal-td"><input name="mail" class="search-input" type="email" th:field="*{mail}" required></td></tr>
+							<tr><td>mail</td><td th:text="${user.mail}"></td></tr>
 							<tr><td>住所</td><td class="modal-td"><input name="address" class="search-input" type="text" th:field="*{address}" required></td></tr>
 							<tr><td>学科</td><td class="modal-td"><input name="course" class="search-input" type="text" th:field="*{course}" required></td></tr>
 							<tr><td>役職</td><td class="modal-td"><input name="position" class="search-input" type="text" th:field="*{position}" required></td></tr>

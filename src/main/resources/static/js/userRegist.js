@@ -1,3 +1,8 @@
+/**
+ * ユーザー登録
+ */
+
+// エラーメッセージ表示
 function execute(){
 	console.log("execute");
 	var lnNode = document.querySelector('#lastName');
@@ -18,18 +23,9 @@ function execute(){
 	
 	var flg = true;
 	var msg = '';
-	
-	if(!sexNode.value) {
-		flg = false
-		msg = '性別が選択されていません';
-	}
-	
-	if(!birthNode.value) {
-		flg = false
-		msg = '生年月日が入力されていません';
-	}
 
-	if(!lnNode.value || !fnNode.value) {
+
+	if(!lnNode.value || !fnNode.value || !birthNode.value) {
 		flg = false
 		msg = '必須項目を入力して下さい';
 	}
@@ -45,6 +41,7 @@ function execute(){
 
 }
 
+// キャンセル
 function cancelClick(){
 	history.back();
 }

@@ -9,7 +9,7 @@
 <body>
 	<div class="form-wrapper">
 	    <h1>Sign In</h1>
-	    <form method="post" action="index.html" th:action="@{/login}">
+	    <form method="post" th:action="@{/login}">
 		    <p th:if="${param.error}" class="error">ユーザー名またはパスワードが違います。</p>
 			<div class="form-item">
 		        <label for="username"></label>
@@ -24,7 +24,7 @@
 			</div>
 	    </form>
 		<div class="form-footer">
-			<p><a href="/register">Create an account</a></p>
+			<p><a th:href="@{/register}">Create an account</a></p>
   		</div>
     </div>
 </body>

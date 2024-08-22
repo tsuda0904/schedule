@@ -6,7 +6,7 @@ public class UserUpdateQuery {
 	private String lastName;
 	private String firstName;
 	private String tel;
-	private String mail;
+//	private String mail;
 	private String address;
 	private String course;
 	private String position;
@@ -43,13 +43,13 @@ public class UserUpdateQuery {
 		this.tel = tel;
 	}
 
-	public String getMail() {
-		return mail;
-	}
-
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
+//	public String getMail() {
+//		return mail;
+//	}
+//
+//	public void setMail(String mail) {
+//		this.mail = mail;
+//	}
 
 	public String getAddress() {
 		return address;
@@ -78,7 +78,7 @@ public class UserUpdateQuery {
 	@Override
 	public String toString() {
 		return "UserUpdateQuery [userId=" + userId + ", lastName=" + lastName + ", firstName=" + firstName + ", tel="
-				+ tel + ", mail=" + mail + ", address=" + address + ", course=" + course + ", position=" + position
+				+ tel +  ", address=" + address + ", course=" + course + ", position=" + position
 				+ "]";
 	}
 

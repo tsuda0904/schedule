@@ -31,11 +31,6 @@ public class LoginUserDetails implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return authorities;
 	}
-	
-//	@Override
-//	public Collection<? extends GrantedAuthority> getAuthorities() {
-//		return Collections.singleton(new SimpleGrantedAuthority("ROLE_GENERAL"));
-//	}
 
 	@Override
 	public String getPassword() {

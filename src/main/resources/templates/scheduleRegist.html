@@ -23,15 +23,15 @@
 		</div>
 		
 		<div class="container scheRegi-container">
-			<form action="#" name="registform" th:action="@{/schedule/registExecute}" th:object="${scheduleEntity}" method="post">
+			<form name="registform" th:action="@{/schedule/registExecute}" th:object="${scheduleEntity}" method="post">
 				<h4 class="sub-header">スケジュール</h4>
 			    <div class="content">
 					<table class="modal-table table-striped">
 						<tr><td>日付</td><td><input class="search-input" type="date" name="meetingday" id="meetingday"></td></tr>
 						<tr><td>時間</td><td><input class="search-input" type="time" name="meetingtime" id="meetingtime"></td></tr>
 						<tr><td>会議名</td><td>
-							<select name="meeting" class="search-input" th:field="*{meeting}">
-								<option value="00"></option>
+							<select id="meeting" name="meeting" class="search-input" th:field="*{meeting}" required>
+								<option value=""></option>
 								<option value="学部会議">学部会議</option>
 								<option value="人間生活学科懇談会">人間生活学科懇談会</option>
 								<option value="食物栄養科学科懇談会">食物栄養科学科懇談会</option>

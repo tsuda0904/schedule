@@ -25,8 +25,8 @@
 				<form name="updateform" th:action="@{/schedule/update}" th:object="${scheduleUpdateQuery}" method="post">
 						<input type="hidden" name="id" th:field="*{scheduleId}">
 					    <table class="table-striped">
-							<tr><td>日付</td><td class="modal-td"><input class="search-input" type="date" name="meetingday" id="meetingday"></td></tr>
-							<tr><td>時間</td><td class="modal-td"><input class="search-input" type="time" name="meetingtime" id="meetingtime"></td></tr>
+							<tr><td>日付</td><td class="modal-td"><input name="meetingday" class="search-input" type="date" id="meetingday"></td></tr>
+							<tr><td>時間</td><td class="modal-td"><input name="meetingtime" class="search-input" type="time" id="meetingtime"></td></tr>
 							<tr><td>会議名</td><td class="modal-td">
 								<select name="meeting" class="search-input" th:field="*{meeting}">
 									<option value="00"></option>

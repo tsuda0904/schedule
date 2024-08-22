@@ -5,6 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" th:href="@{/css/common.css}" type="text/css">
 	<link rel="stylesheet" th:href="@{/css/side.css}" type="text/css">
+	<link rel="stylesheet" th:href="@{/css/userRegist.css}" type="text/css">
 	<script type="text/javascript" th:src="@{/js/userRegist.js}"></script>
 	<title>ユーザ登録</title>
 </head>
@@ -21,7 +22,7 @@
 			</div>
 		</div>
 		<div class="container">
-			<form action="#" name="registform" th:action="@{/user/registExecute}" th:object="${userEntity}" method="post">
+			<form name="registform" th:action="@{/user/registExecute}" th:object="${userEntity}" method="post">
 				<h4 class="sub-header">ユーザ情報</h4>
 			    <div class="content">
 					<table class="modal-table table-striped">
@@ -29,12 +30,13 @@
 						<tr><td>名</td><td><input class="search-input" type="text" th:field="*{firstName}" required></td><td>← 必須</td></tr>
 						<tr><td>性別</td><td>
 							<select name="sex" class="search-input" th:field="*{sex}">
+								<option value=""></option>
 								<option value="M">男性</option>
 								<option value="F">女性</option>
 							</select>
 						</td></tr>
-						<tr><td>生年月日</td><td><input class="search-input" type="date" name="birthday" id="birthday"></td></tr>
-						<tr><td>電話</td><td><input class="search-input" type="tel" th:field="*{tel}" pattern="\d{2,4}-?\d{2,4}-?\d{3,4}"></td><td>← ハイフン省略</td></tr>
+						<tr><td>生年月日</td><td><input class="search-input" type="date" name="birthday" id="birthday"></td><td>← 必須</td></tr>
+						<tr><td>電話</td><td><input class="search-input" type="tel" th:field="*{tel}" pattern="\d{2,4}-?\d{2,4}-?\d{3,4}"></td>
 						<tr><td>メール</td><td><input class="search-input" type="email" th:field="*{mail}"></td></tr>
 						<tr><td>住所</td><td><input class="search-input" type="text" required th:field="*{address}"></td></tr>
 						<tr><td>学科</td><td><input class="search-input" type="text" required th:field="*{course}"></td></tr>

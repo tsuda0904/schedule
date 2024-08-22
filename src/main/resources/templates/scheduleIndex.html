@@ -18,7 +18,7 @@
 			<div class="side-inner-container">
 				<h4 class="page-title">スケジュール登録</h4>
 				<hr size="2" class="border">
-				<a class="link" href="/schedule/regist">新規登録</a>
+				<a class="link" th:href="@{/schedule/regist}">新規登録</a>
 				<hr size="2" class="border">
 			</div>
 		</div>
@@ -42,7 +42,8 @@
 				        <form th:action="@{/schedule/update/{id}(id=*{scheduleId})}" th:method="get">
 	         				<button class="btn update">変更</button>
 						</form>
-				        <button class="btn delete" type="button" th:value="${schedule.scheduleId}" onclick="deleteClick(this.value)">削除</button>
+				        <!-- <button class="btn delete" type="button" th:value="*{scheduleId}" onclick="deleteClick(this.value)">削除</button> -->
+				        <button class="btn delete" type="button" th:value="*{scheduleId}" th:onclick="|deleteClick('__${schedule.scheduleId}__')|">削除</button>
 				      </td>  
 			          <td th:text="*{#dates.format(day, 'yyyy/MM/dd')}"></td>
 			          <td th:text="*{#dates.format(time, 'HH:mm')}"></td>

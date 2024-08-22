@@ -37,7 +37,7 @@ async function deleteClick(userId){
  
  function updateData() {
 	
-	var result = confirm('本当に更新しますか？');
+	var result = confirm('本当に変更しますか？');
 	if (result) {
 		document.updateform.submit();
 	}

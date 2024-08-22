@@ -6,15 +6,15 @@
 	<link rel="stylesheet" th:href="@{/css/common.css}" type="text/css">
 	<link rel="stylesheet" th:href="@{/css/side.css}" type="text/css">
 	<script type="text/javascript" th:src="@{/js/userUtil.js}"></script>
-	<title>ユーザー一覧</title>	
+	<title>ユーザ一覧</title>	
 </head>
 <body>
 	<div class="replace" th:replace="~{/parts/header_part :: header-fragment}"></div>
 	<div class="outer-container">
 		<div class="side-container">
 			<div class="side-inner-container">
-				<form action="#" th:action="@{/user/search}" method="get">
-					<h4 class="page-title">ユーザ一検索</h4>
+				<form th:action="@{/user/search}" method="get">
+					<h4 class="page-title">ユーザ検索</h4>
 					<hr size="2" class="border">
 					<div class="search-checkout">
 						<input class="search-input" type="text" name="name" required>
@@ -28,7 +28,7 @@
 						<label class="chk-lable"><span class="label-text">男性</span><input type="checkbox" name="sex" value="T" checked=”checked”></label>
 						<label class="chk-lable"><span class="label-text">女性</span><input type="checkbox" name="sex" value="F" checked=”checked”></label>
 					</div>
-				<a class="link" href="/user/regist">新規ユーザ登録</a>
+				<a class="link" th:href="@{/user/regist}">新規ユーザ登録</a>
 			</div>
 		</div>
 		<div class="container">

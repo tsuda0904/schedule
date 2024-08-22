@@ -1,3 +1,8 @@
+/**
+ * スケジュール登録
+ */
+
+// エラーメッセージ表示
 function execute(){
 	console.log("execute");
 	var meetingdayNode = document.querySelector('#meetingday');
@@ -15,25 +20,32 @@ function execute(){
 	var flg = true;
 	var msg = '';
 	
-	if(!meetingdayNode.value) {
-			flg = false
-			msg = '日付が入力されていません';
+	if(!placeNode.value) {
+		flg = false
+		msg = '場所が入力されていません';
+	}
+	
+	if(!mnNode.value) {
+		flg = false
+		msg = '議題が入力されていません';
 	}
 
-	if(!meetingtimeNode.value) {
-			flg = false
-			msg = '時間が入力されていません';
-	}
-		
 	if(!meetingNode.value) {
 		flg = false
 		msg = '会議が選択されていません';
 	}
-
-	if(!placeNode.value) {
+	
+	if(!meetingtimeNode.value) {
 		flg = false
-		msg = '議題が入力されていません';
+		msg = '時間が入力されていません';
 	}
+			
+		
+	if(!meetingdayNode.value) {
+		flg = false
+		msg = '日付が入力されていません';
+	}
+	
 	
 	if (flg){
 		var result = confirm('登録処理を実行します');
@@ -46,6 +58,7 @@ function execute(){
 
 }
 
+// キャンセル
 function cancelClick(){
 	history.back();
 }
