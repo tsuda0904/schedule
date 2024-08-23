@@ -68,7 +68,7 @@ CREATE DATABASE schedule;
 USE schedule;
 
 CREATE TABLE if not exists login_user (
-	id bigint(20) NOT NULL AUTO_INCREMENT,
+	id BIGINT(20) NOT NULL AUTO_INCREMENT,
 	name VARCHAR(255),
 	email VARCHAR(255),
 	password VARCHAR(255),
@@ -76,41 +76,41 @@ CREATE TABLE if not exists login_user (
 	PRIMARY KEY (id)
 );
 
-create table if not exists role (
-	id bigint(20) not null auto_increment,
-	name varchar(255),
-	primary key (id)
+CREATE TABLE if not exists role (
+	id BIGINT(20) NOT NULL AUTO_INCREMENT,
+	name VARCHAR(255),
+	PRIMARY KEY (id)
 );
 
-create table if not exists user (
-	id bigint(20) not null auto_increment,
-	last_name varchar(255),
-	first_name varchar(255),
+CREATE TABLE if not exists user (
+	id bigint(20) NOT NULL AUTO_INCREMENT,
+	last_name VARCHAR(255),
+	first_name VARCHAR(255),
 	birth date,
-	sex varchar(10),
-	tel varchar(50),
-	mail varchar(255),
-	address varchar(1000),
-	course varchar(50),
-	position varchar(50),
+	sex VARCHAR(10),
+	tel VARCHAR(50),
+	mail VARCHAR(255),
+	address VARCHAR(1000),
+	course VARCHAR(50),
+	position VARCHAR(50),
 	user_registered date,
-	primary key (id)
+	PRIMARY KEY (id)
 );
 
-create table if not exists schedule (
-	id bigint(20) not null auto_increment,
+CREATE TABLE if not exists schedule (
+	id BIGINT(20) NOT NULL AUTO_INCREMENT,
 	day date,
 	time time
-	meeting varchar(255),
-	meeting_name varchar(255),
-	place varchar(255),
+	meeting VARCHAR(255),
+	meeting_name VARCHAR(255),
+	place VARCHAR(255),
 	schedule_registered date,
-	primary key (id)
+	PRIMARY KEY (id)
 );
 
-create table if not exists meeting (
-	id bigint(20) not null auto_increment,
-	meeting varchar(255),
-	primary key (id)
+CREATE TABLE if not exists meeting (
+	id BIGINT(20) NOT NULL AUTO_INCREMENT,
+	meeting VARCHAR(255),
+	PRIMARY KEY (id)
 );
 ```
