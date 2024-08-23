@@ -62,55 +62,67 @@ Adwinユーザでサインインした場合、スケジュール編集画面よ
 <br>
 
 ## データベース作成
-```
-CREATE DATABASE schedule;
 
-USE schedule;
+	CREATE DATABASE schedule;
+	
+	USE schedule;
+	
+	CREATE TABLE if not exists login_user (
+		id BIGINT(20) NOT NULL AUTO_INCREMENT,
+		name VARCHAR(255),
+		email VARCHAR(255),
+		password VARCHAR(255),
+		role VARCHAR(10),
+		PRIMARY KEY (id)
+	);
+	
+	CREATE TABLE if not exists role (
+		id BIGINT(20) NOT NULL AUTO_INCREMENT,
+		name VARCHAR(255),
+		PRIMARY KEY (id)
+	);
+	
+	CREATE TABLE if not exists user (
+		id bigint(20) NOT NULL AUTO_INCREMENT,
+		last_name VARCHAR(255),
+		first_name VARCHAR(255),
+		birth date,
+		sex VARCHAR(10),
+		tel VARCHAR(50),
+		mail VARCHAR(255),
+		address VARCHAR(1000),
+		course VARCHAR(50),
+		position VARCHAR(50),
+		user_registered date,
+		PRIMARY KEY (id)
+	);
+	
+	CREATE TABLE if not exists schedule (
+		id BIGINT(20) NOT NULL AUTO_INCREMENT,
+		day date,
+		time time
+		meeting VARCHAR(255),
+		meeting_name VARCHAR(255),
+		place VARCHAR(255),
+		schedule_registered date,
+		PRIMARY KEY (id)
+	);
+	
+	CREATE TABLE if not exists meeting (
+		id BIGINT(20) NOT NULL AUTO_INCREMENT,
+		meeting VARCHAR(255),
+		PRIMARY KEY (id)
+	);
 
-CREATE TABLE if not exists login_user (
-	id BIGINT(20) NOT NULL AUTO_INCREMENT,
-	name VARCHAR(255),
-	email VARCHAR(255),
-	password VARCHAR(255),
-	role VARCHAR(10),
-	PRIMARY KEY (id)
-);
 
-CREATE TABLE if not exists role (
-	id BIGINT(20) NOT NULL AUTO_INCREMENT,
-	name VARCHAR(255),
-	PRIMARY KEY (id)
-);
-
-CREATE TABLE if not exists user (
-	id bigint(20) NOT NULL AUTO_INCREMENT,
-	last_name VARCHAR(255),
-	first_name VARCHAR(255),
-	birth date,
-	sex VARCHAR(10),
-	tel VARCHAR(50),
-	mail VARCHAR(255),
-	address VARCHAR(1000),
-	course VARCHAR(50),
-	position VARCHAR(50),
-	user_registered date,
-	PRIMARY KEY (id)
-);
-
-CREATE TABLE if not exists schedule (
-	id BIGINT(20) NOT NULL AUTO_INCREMENT,
-	day date,
-	time time
-	meeting VARCHAR(255),
-	meeting_name VARCHAR(255),
-	place VARCHAR(255),
-	schedule_registered date,
-	PRIMARY KEY (id)
-);
-
-CREATE TABLE if not exists meeting (
-	id BIGINT(20) NOT NULL AUTO_INCREMENT,
-	meeting VARCHAR(255),
-	PRIMARY KEY (id)
-);
-```
+## 使用技術
+#### ●フロントエンド
+・HTML<br>
+・CSS<br>
+・JavaScript
+#### ●バックエンド
+・Java
+#### ●データベース
+・MySQL
+#### ●フレームワーク
+・Spring Boot, security
