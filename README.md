@@ -75,4 +75,36 @@ CREATE TABLE if not exists login_user (
 	role VARCHAR(10),
 	PRIMARY KEY (id)
 );
+
+create table if not exists role (
+	id bigint(20) not null auto_increment,
+	name varchar(255),
+	primary key (id)
+);
+
+create table if not exists user (
+	id bigint(20) not null auto_increment,
+	last_name varchar(255),
+	first_name varchar(255),
+	birth date,
+	sex varchar(10),
+	tel varchar(50),
+	mail varchar(255),
+	address varchar(1000),
+	course varchar(50),
+	position varchar(50),
+	user_registered date,
+	primary key (id)
+);
+
+create table if not exists schedule (
+	id bigint(20) not null auto_increment,
+	day date,
+	time time
+	meeting varchar(255),
+	meeting_name varchar(255),
+	place varchar(255),
+	schedule_registered date,
+	primary key (id)
+);
 ```
