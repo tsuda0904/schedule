@@ -107,4 +107,10 @@ create table if not exists schedule (
 	schedule_registered date,
 	primary key (id)
 );
+
+create table if not exists meeting (
+	id bigint(20) not null auto_increment,
+	meeting varchar(255),
+	primary key (id)
+);
 ```
