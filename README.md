@@ -4,3 +4,7 @@
 <br>
 ## 機能一覧
 アカウント登録機能
+
+
+https://github.com/user-attachments/assets/7448bec9-52d8-4624-a71e-786dfcce9ad1
+
