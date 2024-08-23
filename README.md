@@ -65,14 +65,14 @@ Adwinユーザでサインインした場合、スケジュール編集画面よ
 ```
 CREATE DATABASE schedule;
 
-use schedule;
+USE schedule;
 
-create table if not exists login_user (
-	id bigint(20) not null auto_increment,
-	name varchar(255),
-	email varchar(255),
-	password varchar(255),
-	role varchar(10),
-	primary key (id)
+CREATE TABLE if not exists login_user (
+	id bigint(20) NOT NULL AUTO_INCREMENT,
+	name VARCHAR(255),
+	email VARCHAR(255),
+	password VARCHAR(255),
+	role VARCHAR(10),
+	PRIMARY KEY (id)
 );
 ```
